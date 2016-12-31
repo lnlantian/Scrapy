@@ -30,7 +30,6 @@ class TestGetRedis(object):
         assert server is client_cls.from_url.return_value
         client_cls.from_url.assert_called_with(url, param='foo')
 
-
 class TestFromSettings(object):
 
     def setup(self):
