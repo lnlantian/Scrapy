@@ -9,11 +9,9 @@ def find_packages(path):
     # This method returns packages and subpackages as well.
     return [name for _, name, is_pkg in walk_packages([path]) if is_pkg]
 
-
 def read_file(filename):
     with io.open(filename) as fp:
         return fp.read().strip()
-
 
 def read_rst(filename):
     # Ignore unsupported directives by pypi.
@@ -21,11 +19,9 @@ def read_rst(filename):
     return ''.join(line for line in io.StringIO(content)
                    if not line.startswith('.. comment::'))
 
-
 def read_requirements(filename):
     return [line.strip() for line in read_file(filename).splitlines()
             if not line.startswith('#')]
-
 
 setup(
     name='scrapy-redis',
