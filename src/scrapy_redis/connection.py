@@ -65,25 +65,21 @@ def get_redis_from_settings(settings):
 
     return get_redis(**params)
 
-
-# Backwards compatible alias.
 from_settings = get_redis_from_settings
 
 
 def get_redis(**kwargs):
     """Returns a redis client instance.
-
     Parameters
-    ----------
+    
     redis_cls : class, optional
         Defaults to ``redis.StrictRedis``.
     url : str, optional
         If given, ``redis_cls.from_url`` is used to instantiate the class.
     **kwargs
         Extra parameters to be passed to the ``redis_cls`` class.
-
     Returns
-    -------
+
     server
         Redis client instance.
 
