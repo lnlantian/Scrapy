@@ -5,7 +5,6 @@ from scrapy.settings import Settings
 
 from scrapy_redis.dupefilter import RFPDupeFilter
 
-
 def get_redis_mock():
     server = mock.Mock()
 
@@ -19,7 +18,6 @@ def get_redis_mock():
     server.sadd = sadd
 
     return server
-
 
 class TestRFPDupeFilter(object):
 
