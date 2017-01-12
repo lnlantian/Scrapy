@@ -4,9 +4,7 @@ import io
 from pkgutil import walk_packages
 from setuptools import setup
 
-
 def find_packages(path):
-    # This method returns packages and subpackages as well.
     return [name for _, name, is_pkg in walk_packages([path]) if is_pkg]
 
 def read_file(filename):
