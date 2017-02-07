@@ -16,7 +16,6 @@ def read_rst(filename):
     content = read_file(filename)
     return ''.join(line for line in io.StringIO(content)
                    if not line.startswith('.. comment::'))
-
 def read_requirements(filename):
     return [line.strip() for line in read_file(filename).splitlines()
             if not line.startswith('#')]
