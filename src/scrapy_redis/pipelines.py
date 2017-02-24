@@ -1,12 +1,9 @@
 from scrapy.utils.misc import load_object
 from scrapy.utils.serialize import ScrapyJSONEncoder
 from twisted.internet.threads import deferToThread
-
 from . import connection
 
-
 default_serialize = ScrapyJSONEncoder().encode
-
 
 class RedisPipeline(object):
     """Pushes serialized item into a redis list/queue"""
@@ -29,7 +26,6 @@ class RedisPipeline(object):
             params['serialize_func'] = load_object(
                 settings['REDIS_ITEMS_SERIALIZER']
             )
-
         return cls(**params)
 
     @classmethod
@@ -47,9 +43,7 @@ class RedisPipeline(object):
 
     def item_key(self, item, spider):
         """Returns redis key based on given spider.
-
         Override this function to use a different key depending on the item
         and/or spider.
-
         """
         return self.key % {'spider': spider.name}
