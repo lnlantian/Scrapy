@@ -10,18 +10,14 @@ from scrapy_redis.spiders import (
     RedisSpider,
 )
 
-
 class MySpider(RedisSpider):
     name = 'myspider'
-
 
 class MyCrawlSpider(RedisCrawlSpider):
     name = 'myspider'
 
-
 def get_crawler(**kwargs):
     return mock.Mock(settings=Settings(), **kwargs)
-
 
 class TestRedisMixin_setup_redis(object):
 
@@ -62,7 +58,6 @@ class TestRedisMixin_setup_redis(object):
         assert myspider.server is server
         assert crawler.signals.connect.call_count == 0
 
-
 @pytest.mark.parametrize('spider_cls', [
     MySpider,
     MyCrawlSpider,
@@ -86,7 +81,6 @@ class MockRequest(mock.Mock):
 
     def __eq__(self, other):
         return self.url == other.url
-
 
 @pytest.mark.parametrize('spider_cls', [
     MySpider,
