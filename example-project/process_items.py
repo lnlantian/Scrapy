@@ -91,9 +91,7 @@ def main():
     except Exception:
         logger.exception("Unhandled exception")
         retcode = 2
-
     return retcode
-
 
 if __name__ == '__main__':
     sys.exit(main())
