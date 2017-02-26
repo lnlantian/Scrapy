@@ -36,7 +36,6 @@ def process_items(r, keys, timeout, limit=0, log_every=1000, wait=.1):
         if ret is None:
             time.sleep(wait)
             continue
-
         source, data = ret
         try:
             item = json.loads(data)
@@ -67,15 +66,12 @@ def main():
     parser.add_argument('--limit', type=int, default=0)
     parser.add_argument('--progress-every', type=int, default=100)
     parser.add_argument('-v', '--verbose', action='store_true')
-
     args = parser.parse_args()
-
     params = {}
     if args.host:
         params['host'] = args.host
     if args.port:
         params['port'] = args.port
-
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO)
 
     r = get_redis(**params)
